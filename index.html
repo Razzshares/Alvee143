@@ -3,30 +3,393 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Creator Campus Web3</title>
+    <title>Creator Campus | Discover Legit Crypto Airdrops</title>
     <meta
       name="description"
-      content="Creator Campus Web3 helps creators launch, grow, and monetize in the decentralized economy."
+      content="Creator Campus helps you discover legit crypto airdrops, testnets, and early Web3 opportunities. Find tasks, stay active, and claim rewards."
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap"
-      rel="stylesheet"
+    <meta
+      name="keywords"
+      content="crypto airdrops, web3 airdrops, testnet, retroactive rewards, nft drops, defi airdrops"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <style>
+      :root {
+        --bg: #070911;
+        --bg-soft: #0e1322;
+        --text: #e8ecff;
+        --text-muted: #a9b3d9;
+        --primary: #8a5cff;
+        --secondary: #30b7ff;
+        --success: #2ddf9f;
+        --warn: #f1b84b;
+        --danger: #ff6e8a;
+        --card-border: rgba(255, 255, 255, 0.14);
+        --glass: rgba(255, 255, 255, 0.05);
+        --shadow: 0 20px 40px rgba(2, 7, 20, 0.5);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+        background:
+          radial-gradient(circle at 15% 15%, rgba(138, 92, 255, 0.26), transparent 45%),
+          radial-gradient(circle at 80% 0%, rgba(48, 183, 255, 0.2), transparent 40%),
+          var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+        min-height: 100vh;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .container {
+        width: min(1120px, 92%);
+        margin: 0 auto;
+      }
+
+      .site-header {
+        position: sticky;
+        top: 0;
+        backdrop-filter: blur(10px);
+        background: rgba(7, 9, 17, 0.75);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        z-index: 10;
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 0.9rem 0;
+      }
+
+      .logo {
+        font-weight: 800;
+        letter-spacing: 0.3px;
+      }
+
+      .logo span {
+        background: linear-gradient(90deg, var(--primary), var(--secondary));
+        -webkit-background-clip: text;
+        color: transparent;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .nav-links a {
+        color: var(--text-muted);
+        transition: color 0.25s ease;
+      }
+
+      .nav-links a:hover {
+        color: var(--text);
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.4rem;
+        border: 1px solid transparent;
+        border-radius: 999px;
+        padding: 0.7rem 1.2rem;
+        font-weight: 600;
+        transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+
+      .btn-primary {
+        background: linear-gradient(90deg, var(--primary), var(--secondary));
+        color: #fff;
+        box-shadow: 0 10px 25px rgba(101, 112, 255, 0.4);
+      }
+
+      .btn-outline {
+        border-color: rgba(255, 255, 255, 0.3);
+        color: var(--text);
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      section {
+        padding: 4.5rem 0;
+      }
+
+      .hero {
+        padding-top: 5.5rem;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 2rem;
+        align-items: center;
+      }
+
+      .tag {
+        display: inline-block;
+        padding: 0.35rem 0.75rem;
+        border-radius: 999px;
+        font-size: 0.84rem;
+        border: 1px solid rgba(255, 255, 255, 0.17);
+        color: #d1d7f7;
+        background: rgba(255, 255, 255, 0.03);
+      }
+
+      h1,
+      h2,
+      h3 {
+        line-height: 1.2;
+      }
+
+      h1 {
+        font-size: clamp(2rem, 4vw, 3.5rem);
+        margin: 1rem 0 0.9rem;
+      }
+
+      .lead {
+        color: var(--text-muted);
+        max-width: 60ch;
+      }
+
+      .cta {
+        margin-top: 1.5rem;
+        display: flex;
+        gap: 0.85rem;
+        flex-wrap: wrap;
+      }
+
+      .glass {
+        background: var(--glass);
+        border: 1px solid var(--card-border);
+        border-radius: 20px;
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(12px);
+      }
+
+      .hero-panel {
+        padding: 1.4rem;
+      }
+
+      .hero-panel h3 {
+        margin-bottom: 0.75rem;
+      }
+
+      .hero-panel ul {
+        list-style: none;
+        display: grid;
+        gap: 0.8rem;
+      }
+
+      .hero-panel li {
+        display: flex;
+        justify-content: space-between;
+        gap: 0.8rem;
+        color: var(--text-muted);
+        border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+        padding-bottom: 0.5rem;
+      }
+
+      .hero-panel li strong {
+        color: var(--text);
+      }
+
+      .section-title {
+        font-size: clamp(1.5rem, 3vw, 2.2rem);
+        margin-bottom: 0.75rem;
+      }
+
+      .section-sub {
+        color: var(--text-muted);
+        margin-bottom: 1.6rem;
+      }
+
+      .airdrop-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .card {
+        padding: 1rem;
+        transition: transform 0.25s ease, border-color 0.25s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-3px);
+        border-color: rgba(138, 92, 255, 0.55);
+      }
+
+      .card p {
+        color: var(--text-muted);
+        font-size: 0.95rem;
+      }
+
+      .meta {
+        margin: 0.85rem 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.45rem;
+      }
+
+      .pill {
+        font-size: 0.78rem;
+        padding: 0.32rem 0.62rem;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+      }
+
+      .status-active {
+        color: #0b1613;
+        background: var(--success);
+        border-color: transparent;
+      }
+
+      .status-upcoming {
+        color: #1f1400;
+        background: var(--warn);
+        border-color: transparent;
+      }
+
+      .status-ended {
+        color: #240610;
+        background: var(--danger);
+        border-color: transparent;
+      }
+
+      .categories {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+      }
+
+      .categories .pill {
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .steps {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 0.9rem;
+      }
+
+      .step {
+        padding: 1rem;
+      }
+
+      .step small {
+        color: #9dc4ff;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+      }
+
+      .step p {
+        margin-top: 0.5rem;
+        color: var(--text-muted);
+      }
+
+      .why-list {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.8rem;
+      }
+
+      .why-list li {
+        list-style: none;
+        padding: 0.9rem 1rem;
+      }
+
+      .community {
+        display: flex;
+        gap: 0.8rem;
+        flex-wrap: wrap;
+      }
+
+      footer {
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 1.6rem 0 2.5rem;
+      }
+
+      .footer-wrap {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        flex-wrap: wrap;
+        color: var(--text-muted);
+      }
+
+      .fade {
+        opacity: 0;
+        transform: translateY(12px);
+        animation: rise 0.7s ease forwards;
+      }
+
+      .fade:nth-child(2) {
+        animation-delay: 0.1s;
+      }
+
+      .fade:nth-child(3) {
+        animation-delay: 0.2s;
+      }
+
+      @keyframes rise {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 900px) {
+        .hero-grid,
+        .airdrop-grid,
+        .steps,
+        .why-list {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 760px) {
+        section {
+          padding: 3.6rem 0;
+        }
+
+        .nav {
+          flex-wrap: wrap;
+        }
+
+        .nav-links {
+          order: 3;
+          width: 100%;
+          justify-content: center;
+        }
+      }
+    </style>
   </head>
   <body>
     <header class="site-header">
-      <div class="container nav-wrap">
-        <a class="logo" href="#">CreatorCampus<span>Web3</span></a>
-        <nav>
-          <a href="#features">Features</a>
-          <a href="#tracks">Tracks</a>
-          <a href="#pricing">Pricing</a>
-          <a href="#faq">FAQ</a>
+      <div class="container nav">
+        <a class="logo" href="#">Creator <span>Campus</span></a>
+        <nav class="nav-links" aria-label="Primary">
+          <a href="#airdrops">Airdrops</a>
+          <a href="#categories">Categories</a>
+          <a href="#how">How It Works</a>
+          <a href="#community">Community</a>
         </nav>
-        <a class="btn btn-ghost" href="#pricing">Join waitlist</a>
       </div>
     </header>
 
@@ -34,148 +397,146 @@
       <section class="hero">
         <div class="container hero-grid">
           <div>
-            <p class="eyebrow">For creators, educators & community builders</p>
-            <h1>Launch your <span>Web3 creator business</span> in weeks, not months.</h1>
-            <p class="subtext">
-              Creator Campus Web3 is a hands-on learning and growth platform with plug-and-play
-              toolkits, cohort support, and onchain monetization frameworks.
+            <span class="tag">Public • No Login Needed</span>
+            <h1>Earn Free Crypto Before Everyone Else</h1>
+            <p class="lead">
+              Discover legit airdrops, testnets, and early Web3 opportunities.
             </p>
-            <div class="cta-row">
-              <a class="btn btn-primary" href="#pricing">Get early access</a>
-              <a class="btn btn-secondary" href="#features">See curriculum</a>
+            <div class="cta">
+              <a class="btn btn-primary" href="#airdrops">Explore Airdrops</a>
+              <a class="btn btn-outline" href="#community">Join Community</a>
             </div>
-            <ul class="quick-stats" aria-label="Highlights">
-              <li><strong>4</strong> guided learning tracks</li>
-              <li><strong>30+</strong> templates and playbooks</li>
-              <li><strong>Weekly</strong> mentorship sessions</li>
-            </ul>
           </div>
-          <aside class="hero-card" aria-label="Program snapshot">
-            <h2>Next cohort opens in</h2>
-            <p id="countdown" class="countdown">00d : 00h : 00m : 00s</p>
-            <div class="card-metrics">
-              <div>
-                <span>Seats</span>
-                <strong>120</strong>
-              </div>
-              <div>
-                <span>Live workshops</span>
-                <strong>12</strong>
-              </div>
-              <div>
-                <span>Office hours</span>
-                <strong>2 / week</strong>
-              </div>
-            </div>
+
+          <aside class="glass hero-panel" aria-label="Live opportunities">
+            <h3>Trending This Week</h3>
+            <ul>
+              <li><span>High-probability picks</span> <strong>8</strong></li>
+              <li><span>New testnets added</span> <strong>5</strong></li>
+              <li><span>Retroactive watchlist</span> <strong>12</strong></li>
+              <li><span>Fastest to complete</span> <strong>&lt;15 min</strong></li>
+            </ul>
           </aside>
         </div>
       </section>
 
-      <section id="features" class="section container">
-        <h2>Everything you need to build a sustainable creator flywheel.</h2>
-        <div class="feature-grid">
-          <article>
-            <h3>Onchain monetization</h3>
-            <p>Create memberships, drops, and token-gated offers without complicated setup.</p>
-          </article>
-          <article>
-            <h3>AI growth systems</h3>
-            <p>Generate content, repurpose ideas, and automate funnels with practical AI workflows.</p>
-          </article>
-          <article>
-            <h3>Community architecture</h3>
-            <p>Design retention loops that turn one-time users into long-term members and advocates.</p>
-          </article>
-        </div>
-      </section>
-
-      <section id="tracks" class="section alt-bg">
+      <section id="airdrops">
         <div class="container">
-          <h2>Choose your learning track.</h2>
-          <div class="track-grid">
-            <article>
-              <h3>Creator Starter</h3>
-              <p>Positioning, niche, offer design, and creator brand foundations.</p>
+          <h2 class="section-title">Featured Airdrops</h2>
+          <p class="section-sub">
+            Handpicked opportunities with clear tasks and quality signals.
+          </p>
+          <div class="airdrop-grid">
+            <article class="glass card fade">
+              <h3>NovaChain</h3>
+              <p>Complete bridge and swap tasks on Nova testnet to earn future token allocation.</p>
+              <div class="meta">
+                <span class="pill">Reward: Token</span>
+                <span class="pill status-active">Active</span>
+              </div>
+              <a class="btn btn-outline" href="#">View Details</a>
             </article>
-            <article>
-              <h3>Monetization Lab</h3>
-              <p>Funnels, product ladder, community-led launches, and pricing strategy.</p>
+
+            <article class="glass card fade">
+              <h3>PixelPort</h3>
+              <p>Mint beta collectibles, share feedback, and boost your score for NFT reward slots.</p>
+              <div class="meta">
+                <span class="pill">Reward: NFT</span>
+                <span class="pill status-upcoming">Upcoming</span>
+              </div>
+              <a class="btn btn-outline" href="#">View Details</a>
             </article>
-            <article>
-              <h3>Onchain Builder</h3>
-              <p>Wallet onboarding, token utilities, and trust-minimized reward structures.</p>
-            </article>
-            <article>
-              <h3>Scale Engine</h3>
-              <p>Analytics, delegation, and SOPs to run your creator business like a company.</p>
+
+            <article class="glass card fade">
+              <h3>OrbitFi</h3>
+              <p>Use lend/borrow quests and governance actions to farm points for retro claims.</p>
+              <div class="meta">
+                <span class="pill">Reward: Points</span>
+                <span class="pill status-ended">Ended</span>
+              </div>
+              <a class="btn btn-outline" href="#">View Details</a>
             </article>
           </div>
         </div>
       </section>
 
-      <section id="pricing" class="section container">
-        <h2>Simple pricing with founder-friendly options.</h2>
-        <div class="pricing-grid">
-          <article class="price-card">
-            <h3>Explorer</h3>
-            <p class="price">$49<span>/month</span></p>
-            <ul>
-              <li>Self-paced modules</li>
-              <li>Community access</li>
-              <li>Monthly Q&A</li>
-            </ul>
-            <button class="btn btn-secondary" type="button">Start exploring</button>
-          </article>
-          <article class="price-card featured">
-            <p class="badge">Most popular</p>
-            <h3>Accelerator</h3>
-            <p class="price">$199<span>/month</span></p>
-            <ul>
-              <li>Everything in Explorer</li>
-              <li>Weekly live coaching</li>
-              <li>Templates + growth audits</li>
-            </ul>
-            <button class="btn btn-primary" type="button">Apply now</button>
-          </article>
-          <article class="price-card">
-            <h3>Team</h3>
-            <p class="price">$799<span>/month</span></p>
-            <ul>
-              <li>Up to 10 seats</li>
-              <li>Private onboarding</li>
-              <li>Custom growth roadmap</li>
-            </ul>
-            <button class="btn btn-secondary" type="button">Book a call</button>
-          </article>
+      <section id="categories">
+        <div class="container">
+          <h2 class="section-title">Categories</h2>
+          <div class="categories">
+            <span class="pill">Latest Airdrops</span>
+            <span class="pill">Testnet</span>
+            <span class="pill">Retroactive</span>
+            <span class="pill">NFT Drops</span>
+            <span class="pill">DeFi</span>
+          </div>
         </div>
       </section>
 
-      <section id="faq" class="section alt-bg">
+      <section id="how">
         <div class="container">
-          <h2>FAQ</h2>
-          <details>
-            <summary>Do I need Web3 experience to join?</summary>
-            <p>No. We start from fundamentals and provide beginner-friendly onboarding.</p>
-          </details>
-          <details>
-            <summary>Is this only for crypto-native creators?</summary>
-            <p>No. We help traditional creators add Web3 monetization and community mechanics.</p>
-          </details>
-          <details>
-            <summary>Can I cancel anytime?</summary>
-            <p>Yes. All plans are monthly and can be canceled from your dashboard.</p>
-          </details>
+          <h2 class="section-title">How It Works</h2>
+          <div class="steps">
+            <article class="glass step">
+              <small>STEP 1</small>
+              <h3>Find airdrop</h3>
+              <p>Browse curated campaigns with filters by status, type, and effort level.</p>
+            </article>
+            <article class="glass step">
+              <small>STEP 2</small>
+              <h3>Complete tasks</h3>
+              <p>Follow simple checklists like swaps, mints, social quests, and onchain actions.</p>
+            </article>
+            <article class="glass step">
+              <small>STEP 3</small>
+              <h3>Stay active</h3>
+              <p>Repeat weekly tasks and keep wallet activity consistent for better eligibility.</p>
+            </article>
+            <article class="glass step">
+              <small>STEP 4</small>
+              <h3>Claim rewards</h3>
+              <p>Track announcements and claim token, NFT, or points rewards once snapshots go live.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <h2 class="section-title">Why Choose Creator Campus</h2>
+          <ul class="why-list">
+            <li class="glass">Only quality projects</li>
+            <li class="glass">No fake hype</li>
+            <li class="glass">Beginner friendly</li>
+            <li class="glass">Clean UI</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="community">
+        <div class="container">
+          <h2 class="section-title">Community</h2>
+          <p class="section-sub">Get updates, alpha threads, and reminders for deadline-sensitive campaigns.</p>
+          <div class="community">
+            <a class="btn btn-primary" href="#" aria-label="Telegram">Telegram</a>
+            <a class="btn btn-outline" href="#" aria-label="Twitter">Twitter</a>
+            <a class="btn btn-outline" href="#" aria-label="Discord">Discord</a>
+          </div>
         </div>
       </section>
     </main>
 
     <footer>
       <div class="container footer-wrap">
-        <p>© <span id="year"></span> CreatorCampusWeb3. Built for the next generation of creators.</p>
-        <a href="#" aria-label="Back to top">Back to top ↑</a>
+        <p>Creator Campus © 2026</p>
+        <p>Discover. Participate. Earn.</p>
       </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+      document.querySelectorAll('a[href="#"]').forEach((link) => {
+        link.addEventListener('click', (event) => event.preventDefault());
+      });
+    </script>
   </body>
 </html>
